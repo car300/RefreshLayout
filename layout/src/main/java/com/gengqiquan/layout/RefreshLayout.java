@@ -55,14 +55,15 @@ public abstract class RefreshLayout extends RelativeLayout {
         mSwipeRefreshLayout = new SwipeRefreshLayout(mContext);
         addView(mSwipeRefreshLayout, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
         mSwipeRefreshLayout.setColorSchemeColors(0xffff2500);
-        mSwipeRefreshLayout.setOnRefreshListener(() ->
-                {
-                    isLoadMore = false;
-                    if (mRefreshListener != null) {
-                        mRefreshListener.onRefresh();
-                    }
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                isLoadMore = false;
+                if (mRefreshListener != null) {
+                    mRefreshListener.onRefresh();
                 }
-        );
+            }
+        });
         mListView = new ListView(mContext);
         mListView.setDivider(new BitmapDrawable());
         mListView.setSelector(new BitmapDrawable());
@@ -96,9 +97,12 @@ public abstract class RefreshLayout extends RelativeLayout {
         if (mFailureView == null) {
             mFailureView = LayoutInflater.from(mContext).inflate(R.layout.bad_network, null);
             mFailureView.setVisibility(View.GONE);
-            mFailureView.findViewById(R.id.reload).setOnClickListener(v -> {
-                mFailureView.setVisibility(View.GONE);
-                doRefresh();
+            mFailureView.findViewById(R.id.reload).setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mFailureView.setVisibility(View.GONE);
+                    doRefresh();
+                }
             });
         }
         addView(mFailureView, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
@@ -129,9 +133,12 @@ public abstract class RefreshLayout extends RelativeLayout {
         }
         addView(mTopView);
         mTopView.setVisibility(View.GONE);
-        mTopView.setOnClickListener(v -> {
-            mListView.setSelection(0);
-            mTopView.setVisibility(View.GONE);
+        mTopView.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mListView.setSelection(0);
+                mTopView.setVisibility(View.GONE);
+            }
         });
     }
 
