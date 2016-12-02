@@ -8,7 +8,9 @@
 列表目前是listview，后续会增加其他类型列表的切换
 
 可以继承RefreshLayout抽象类实现自己的样式
+
 默认提供一个SampleRefreshLayout。提供一些默认的样式
+
 样式效果如图
 ![刷新](http://img.blog.csdn.net/20161008152441933)![无数据](http://img.blog.csdn.net/20161008152457761)![加载失败](http://img.blog.csdn.net/20161008152510715)
 
