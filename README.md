@@ -3,6 +3,10 @@
 
 默认提供一个SampleRefreshLayout。提供一些默认的样式
 
+下拉刷新采用的谷歌的SwipeRefreshLayout
+
+列表目前是listview，后续会增加其他类型列表的切换
+
 可以继承RefreshLayout抽象类实现自己的样式
 
 
