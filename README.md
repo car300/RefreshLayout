@@ -24,13 +24,13 @@
 ```java
      refresh = (SampleRefreshLayout) findViewById(R.id.refresh);
      //SampleRefreshLayout特有的方法需放在链式调用的前面
-        refresh .noDataLable("暂时没有订单数据")//无数据文本
+        refresh .noDataLable("暂时没有订单数据")//无数据文本，默认暂无数据
                 .noDataImg(R.drawable.message_default)//无数据图片
-                .pageCount(20)//分页数量
-                .refreshEnable(true)//允许手动刷新
-                .loadMoreEnable(true)//允许分页
-                .showTopView(true)//显示一键回到顶部按钮
-                .adapter(new SBAdapter<String>(this)
+                .pageCount(20)//分页数量，默认20
+                .refreshEnable(true)//允许手动刷新，默认true
+                .loadMoreEnable(true)//允许分页，默认true
+                .showTopView(true)//显示一键回到顶部按钮，默认false
+                .adapter(new SBAdapter<String>(this)
                         .layout(android.R.layout.simple_list_item_1)//item布局
                         .bindViewData(new Converter<String>() {
                             @Override
