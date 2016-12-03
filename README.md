@@ -26,7 +26,6 @@
 ## activity初始化
 ```java
      refresh = (SampleRefreshLayout) findViewById(R.id.refresh);
-     //SampleRefreshLayout特有的方法需放在链式调用的前面
         refresh .noDataLable("暂时没有订单数据")//无数据文本，默认暂无数据
                 .noDataImg(R.drawable.message_default)//无数据图片
                 .pageCount(20)//分页数量，默认20
@@ -65,7 +64,6 @@
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         refresh = (SampleRefreshLayout) findViewById(R.id.refresh);
-       //SampleRefreshLayout特有的方法需放在链式调用的前面
         refresh .noDataLable("暂时没有订单数据")
                 .noDataImg(R.drawable.message_default)
                 .pageCount(20)
