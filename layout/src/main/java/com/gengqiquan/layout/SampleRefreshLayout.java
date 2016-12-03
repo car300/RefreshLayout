@@ -4,9 +4,13 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 
 import com.gengqiquan.layout.interfaces.FooterLayout;
+import com.gengqiquan.layout.interfaces.LoadMoreListener;
 import com.gengqiquan.layout.interfaces.NoDataLayout;
+import com.gengqiquan.layout.interfaces.RefreshListener;
+import com.sunshine.adapterlibrary.interfaces.BAdapter;
 
 /**
  * 以listview作为列表控件，
@@ -78,6 +82,61 @@ public class SampleRefreshLayout extends RefreshLayout {
     @Override
     View onCreateFailureView() {
         return mFailureView;
+    }
+
+    @Override
+    public SampleRefreshLayout refreshEnable(boolean enable) {
+        super.refreshEnable(enable);
+        return this;
+    }
+
+    @Override
+    public SampleRefreshLayout showTopView(boolean enable) {
+        super.showTopView(enable);
+        return this;
+    }
+
+    @Override
+    public SampleRefreshLayout pageCount(int number) {
+        super.pageCount(number);
+        return this;
+    }
+
+    @Override
+    public void doRefresh() {
+        super.doRefresh();
+    }
+
+
+    @Override
+    public SampleRefreshLayout loadMoreEnable(boolean b) {
+        super.loadMoreEnable(b);
+        return this;
+    }
+
+
+    @Override
+    public SampleRefreshLayout refresh(RefreshListener refreshListener) {
+        super.refresh(refreshListener);
+        return this;
+    }
+
+    @Override
+    public SampleRefreshLayout setOnListViewScrollListener(AbsListView.OnScrollListener scrollListener) {
+        super.setOnListViewScrollListener(scrollListener);
+        return this;
+    }
+
+    @Override
+    public SampleRefreshLayout loadMore(LoadMoreListener loadMoreListener) {
+        super.loadMore(loadMoreListener);
+        return this;
+    }
+
+    @Override
+    public SampleRefreshLayout adapter(BAdapter adapter) {
+        super.adapter(adapter);
+        return this;
     }
 
     public SampleRefreshLayout(Context context) {
