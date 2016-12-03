@@ -170,17 +170,17 @@
 <dependency>
   <groupId>com.gengqiquan.refresh-layout</groupId>
   <artifactId>layout</artifactId>
-  <version>1.0.1</version>
+  <version>1.0.2</version>
   <type>pom</type>
 </dependency>
 ```
 ## gralde 
 ```
-compile 'com.gengqiquan.refresh-layout:layout:1.0.1'
+compile 'com.gengqiquan.refresh-layout:layout:1.0.2'
 ```
 ## lvy
 ```xml
-<dependency org='com.gengqiquan.refresh-layout' name='layout' rev='1.0.1'>
+<dependency org='com.gengqiquan.refresh-layout' name='layout' rev='1.0.2'>
   <artifact name='layout' ext='pom' ></artifact>
 </dependency>
 ```
