@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.gengqiquan.layout.SampleRefreshLayout;
 import com.sunshine.adapterlibrary.adapter.SBAdapter;
+import com.sunshine.adapterlibrary.adapter.SPAdapter;
 import com.sunshine.adapterlibrary.interfaces.Holder;
 
 import java.util.ArrayList;
@@ -26,17 +27,18 @@ public class MainActivity extends AppCompatActivity {
                 .noDataLable("暂时没有订单数据")
                 .noDataImg(R.drawable.message_default)
                 .pageCount(20)
-                .adapter(new SBAdapter<String>(this)
+                .adapter(new SPAdapter<String>(this)
                         .layout(android.R.layout.simple_list_item_1)
-                        .bindViewData(this::bindViewData))
-                .refresh(()->load(true))
-                .loadMore(()-> load(false))
+                        .bindPositionData(this::bindViewData))
+                .refresh(() -> load(true))
+                .loadMore(() -> load(false))
                 .doRefresh();
-
     }
-    public void bindViewData(Holder holder, String item) {
+
+    public void bindViewData(Holder holder, String item, int p) {
         holder.setText(android.R.id.text1, item);
     }
+
     private void load(final boolean isrefresh) {
         new Thread(new Runnable() {
             @Override
@@ -44,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 Looper.prepare();
                 try {
                     if (isrefresh)
-                    Thread.sleep(2000);
+                        Thread.sleep(2000);
                     else
                         Thread.sleep(500);
                 } catch (Exception e) {
@@ -61,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                             refresh.refreshComplete(list);
                         else
                             refresh.loadMoreComplete(list);
-                       //请求失败调用 refresh.loadFailure();
+                        //请求失败调用 refresh.loadFailure();
                     }
                 });
 

@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -40,6 +41,7 @@ public abstract class RefreshLayout extends RelativeLayout {
     RefreshListener mRefreshListener;
     LoadMoreListener mLoadMoreListener;
     AbsListView.OnScrollListener mScrollListener;
+    AdapterView.OnItemClickListener mOnItemClickListener;
     View mFailureView;
     View mTopView;
     NoDataLayout mNoDataView;
@@ -120,7 +122,14 @@ public abstract class RefreshLayout extends RelativeLayout {
             mLoadMoreView.setAddLayoutParams(params);
         }
         mListView.addFooterView(mLoadMoreView.getFooterView(), null, false);
-
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemClick(parent, view, position, id);
+                }
+            }
+        });
         mTopView = onCreateTopView();
         if (mTopView == null) {
             mTopView = new View(mContext);
@@ -182,7 +191,7 @@ public abstract class RefreshLayout extends RelativeLayout {
 
     //刷新完成添加列表数据
     public void refreshComplete(List list) {
-        if (list.size() == 20) {
+        if (list.size() == pageCount) {
             hasMoreData(true);
         } else {
             hasMoreData(false);
@@ -233,6 +242,28 @@ public abstract class RefreshLayout extends RelativeLayout {
 
     public BAdapter getAdapter() {
         return this.adapter;
+    }
+
+    /**
+     * 获取列表控件
+     *
+     * @author gengqiquan
+     * @date 2017/3/31 上午10:46
+     */
+    public ListView getListView() {
+        return this.mListView;
+    }
+
+
+    /**
+     * 列表项点击事件
+     *
+     * @author gengqiquan
+     * @date 2017/3/31 上午10:43
+     */
+    public RefreshLayout setOnListViewItemClickListener(AdapterView.OnItemClickListener listener) {
+        mOnItemClickListener = listener;
+        return this;
     }
 
     public List getList() {
