@@ -82,6 +82,33 @@
         holder.setText(android.R.id.text1, item);
     }
 ```
+## 带位置参数的adapter
+```java
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        refresh = (SampleRefreshLayout) findViewById(R.id.refresh);
+        refresh .noDataLable("暂时没有订单数据")
+                .noDataImg(R.drawable.message_default)
+                .pageCount(20)
+                .refreshEnable(true)
+                .loadMoreEnable(true)
+                .showTopView(true)
+                .adapter(new SPAdapter<String>(this)
+                        .layout(android.R.layout.simple_list_item_1)
+                        .bindPositionData(this::bindViewData))
+                .refresh(()->load(true))
+                .loadMore(()-> load(false))
+                .doRefresh();
+
+    }
+    public void bindViewData(Holder holder, String item, int p) {
+        holder.setText(android.R.id.text1, item);
+    }
+```
+
 ## load()请求
 
 ```java
