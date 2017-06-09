@@ -195,19 +195,19 @@
 ## maven
 ```xml
 <dependency>
-  <groupId>com.gengqiquan.refresh-layout</groupId>
-  <artifactId>layout</artifactId>
-  <version>1.0.2</version>
+  <groupId>com.gengqiquan</groupId>
+  <artifactId>refreshlayout</artifactId>
+  <version>1.0.3</version>
   <type>pom</type>
 </dependency>
 ```
 ## gralde 
 ```
-compile 'com.gengqiquan.refresh-layout:layout:1.0.2'
+compile 'com.gengqiquan:refreshlayout:1.0.3'
 ```
 ## lvy
 ```xml
-<dependency org='com.gengqiquan.refresh-layout' name='layout' rev='1.0.2'>
-  <artifact name='layout' ext='pom' ></artifact>
+<dependency org='com.gengqiquan' name='refreshlayout' rev='1.0.3'>
+  <artifact name='refreshlayout' ext='pom' ></artifact>
 </dependency>
 ```
