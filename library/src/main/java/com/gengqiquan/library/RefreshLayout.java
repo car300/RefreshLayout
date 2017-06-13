@@ -478,7 +478,7 @@ public class RefreshLayout extends RelativeLayout {
     }
 
     public RefreshLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, R.style.RefreshLayout);
+        this(context, attrs, R.style.RefreshLayoutBase);
     }
 
     public RefreshLayout(Context context, AttributeSet attrs, int defStyleAttr) {

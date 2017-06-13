@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 
-import com.gengqiquan.library.utils.SimpleRefreshLayout;
+import com.gengqiquan.library.SimpleRefreshLayout;
 import com.sunshine.adapterlibrary.adapter.RBAdapter;
 import com.sunshine.adapterlibrary.interfaces.Holder;
 
@@ -22,19 +22,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         refresh = (SimpleRefreshLayout) findViewById(R.id.refresh);
-        //SampleRefreshLayout特有的方法需放在链式调用的前面
-//        refresh.refreshEnable(true)
-//                .loadMoreEnable(true)
-//                .showTopView(true)
-//                .noDataLable("暂时没有订单数据")
-//                .noDataImg(R.drawable.message_default)
-//                .pageCount(20)
+        //SimpleRefreshLayout特有的方法需放在链式调用的前面
         adapter = new RBAdapter<String>(this)
                 .layout(R.layout.item_main_list)
                 .bindViewData(this::bindViewData);
-        refresh.adapter(adapter)
+        refresh.setNoDataLableText("暂无数据")
+                .setNoDataImgRes(R.drawable.message_default)
+                .adapter(adapter)
+                .refreshEnable(true)
                 .refresh(() -> load(true))
-                  .loadMore(() -> load(false))
+                .loadMore(() -> load(false))
                 .doRefresh();
         ImageView imageView = new ImageView(this);
         imageView.setBackgroundDrawable(getResources().getDrawable(R.drawable.img_no_message));
@@ -62,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (Exception e) {
 
                 }
-                Log.e("isrefresh","isrefresh");
+                Log.e("isrefresh", "isrefresh");
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -74,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
 //                            refresh.refreshComplete(list);
 //                        else
 //                            refresh.loadMoreComplete(list);
-                       refresh.loadFailure();
+                        refresh.loadFailure();
                     }
                 });
 

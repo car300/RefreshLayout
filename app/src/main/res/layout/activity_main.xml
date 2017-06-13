@@ -5,9 +5,9 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <com.gengqiquan.library.SimpleNoDataLayout
+    <com.gengqiquan.library.SimpleRefreshLayout
         android:id="@+id/refresh"
-        style="@style/RefreshLayout"
+        style="@style/RefreshLayoutBase"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.gengqiquan.library.SimpleNoDataLayout>
+        android:layout_height="match_parent"></com.gengqiquan.library.SimpleRefreshLayout>
 </RelativeLayout>

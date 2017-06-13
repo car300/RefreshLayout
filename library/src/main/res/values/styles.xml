@@ -2,7 +2,7 @@
 
 
     <!-- Base application theme. -->
-    <style name="RefreshLayout">
+    <style name="RefreshLayoutBase">
         <!-- Customize your theme here. -->
         <item name="refreshEnable">false</item>
         <item name="loadMoreEnable">true</item>

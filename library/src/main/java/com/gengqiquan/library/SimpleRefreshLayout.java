@@ -1,9 +1,7 @@
-package com.gengqiquan.library.utils;
+package com.gengqiquan.library;
 
 import android.content.Context;
 import android.util.AttributeSet;
-
-import com.gengqiquan.library.RefreshLayout;
 
 /**
  * Created by gengqiquan on 2017/6/13.
@@ -25,4 +23,13 @@ public class SimpleRefreshLayout extends RefreshLayout {
         mSimpleRefreshLayout = new SimpleRefreshLayout(context);
     }
 
+    public SimpleRefreshLayout setNoDataLableText(String str) {
+        mSimpleRefreshLayout.setNoDataLableText(str);
+        return this;
+    }
+
+    public SimpleRefreshLayout setNoDataImgRes(int res) {
+        mSimpleRefreshLayout.setNoDataImgRes(res);
+        return this;
+    }
 }

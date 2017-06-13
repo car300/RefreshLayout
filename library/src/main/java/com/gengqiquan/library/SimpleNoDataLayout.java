@@ -51,12 +51,12 @@ public class SimpleNoDataLayout extends RefreshLayout {
         mImg.setImageDrawable(getResources().getDrawable(R.drawable.img_no_message));
     }
 
-    public SimpleNoDataLayout setNoDataLableText(String str) {
+    public SimpleNoDataLayout noDataLableText(String str) {
         mText.setText(str);
         return this;
     }
 
-    public SimpleNoDataLayout setNoDataImgRes(int res) {
+    public SimpleNoDataLayout noDataImgRes(int res) {
         mImg.setImageDrawable(getResources().getDrawable(res));
         return this;
     }
