@@ -124,14 +124,6 @@
 public class SimpleRefreshLayout extends RefreshLayout {
     SimpleRefreshLayout mSimpleRefreshLayout;
 
-    public SimpleRefreshLayout(Context context) {
-        this(context, null);
-    }
-
-    public SimpleRefreshLayout(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
-    }
-
     public SimpleRefreshLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mSimpleRefreshLayout = new SimpleRefreshLayout(context);
