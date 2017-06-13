@@ -19,7 +19,7 @@
  * 提供一个SimpleRefreshLayout，提供一些默认的样式及属性
 
 ## 计划
-
+ * 支持切换下拉刷新控件
  * 控件上添加header 上滑隐藏header，下滑显示header
  * 添加更多预置模板和样式
  
