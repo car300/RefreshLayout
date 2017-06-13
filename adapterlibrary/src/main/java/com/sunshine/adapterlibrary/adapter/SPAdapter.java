@@ -112,6 +112,16 @@ public class SPAdapter<T> extends BaseAdapter implements BAdapter<BaseAdapter> {
     }
 
     @Override
+    public BAdapter<BaseAdapter> addHeaderView(View headerView) {
+        return this;
+    }
+
+    @Override
+    public BAdapter<BaseAdapter> addFooterView(View footerView) {
+        return this;
+    }
+
+    @Override
     public T getItem(int position) {
         // TODO Auto-generated method stub
         return (T) this.list.get(position);

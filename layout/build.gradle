@@ -1,20 +1,21 @@
 apply plugin: 'com.android.library'
 apply plugin: 'me.tatarka.retrolambda'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
+apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion 25
     buildToolsVersion "25.0.0"
-
+    lintOptions {
+        abortOnError false
+    }
     defaultConfig {
         minSdkVersion 11
         targetSdkVersion 22
         versionCode 103
         versionName "1.0.3"
-        compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
-        }
+//        compileOptions {
+//            sourceCompatibility JavaVersion.VERSION_1_8
+//            targetCompatibility JavaVersion.VERSION_1_8
+//        }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -30,11 +31,14 @@ android {
 
 
 }
-def siteUrl = 'https://github.com/gengqiquan/RefreshLayout/blob/master/README.md'      // 项目的主页   这个是说明，可随便填
-def gitUrl = 'https://github.com/gengqiquan/RefreshLayout'      // Git仓库的url  这个是说明，可随便填
-group = "com.gengqiquan.refresh-layout"    // 这里是groupId ,必须填写  一般填你唯一的包名
-version = "1.0.3"
+task javadoc(type: Javadoc) {
 
+    failOnError false
+}
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -46,55 +50,11 @@ dependencies {
     compile project(':swipe')
     compile project(':adapterlibrary')
 }
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-                // Add your description here
-                name ' list refresh layout'     //项目描述
-                url siteUrl
-                // Set your license
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'gengqiquanlib'        //填写开发者的一些基本信息
-                        name 'gengqiquan'    //填写开发者的一些基本信息
-                        email 'gengqiquan@gmail.com'   //填写开发者的一些基本信息
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
+publish {
+    userOrg = 'gengqiquan'
+    groupId = 'com.gengqiquan'
+    artifactId = 'refreshlayout'
+    version = '1.0.3'
+    description = 'list refresh layout'
+    website = "https://github.com/gengqiquan/RefreshLayout"
 }
-
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-bintray {
-    user = "gengqiquan"    //读取 local.properties 文件里面的 bintray.user
-    key = "624527f0c0c8669204bb6673cc44a075766b4282"   //读取 local.properties 文件里面的 bintray.apikey
-    configurations = ['archives']
-    pkg {
-        repo = "sunshine"
-        name = "refreshlayout"    //发布到JCenter上的项目名字，必须填写
-        userOrg = 'gengqiquanlib'
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
-
-}
-

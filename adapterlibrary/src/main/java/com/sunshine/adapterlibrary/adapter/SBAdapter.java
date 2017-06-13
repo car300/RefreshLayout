@@ -79,11 +79,13 @@ public class SBAdapter<T> extends BaseAdapter implements BAdapter<BaseAdapter> {
         // TODO Auto-generated method stub
         return list.size();
     }
+
     @Override
     public List getList() {
         // TODO Auto-generated method stub
         return this.list;
     }
+
     @Override
     public void appendList(List list) {
         // TODO Auto-generated method stub
@@ -109,9 +111,19 @@ public class SBAdapter<T> extends BaseAdapter implements BAdapter<BaseAdapter> {
     }
 
     @Override
+    public BAdapter<BaseAdapter> addHeaderView(View headerView) {
+        return this;
+    }
+
+    @Override
+    public BAdapter<BaseAdapter> addFooterView(View footerView) {
+        return this;
+    }
+
+    @Override
     public T getItem(int position) {
         // TODO Auto-generated method stub
-        return (T)this.list.get(position);
+        return (T) this.list.get(position);
     }
 
     @Override
