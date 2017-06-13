@@ -5,7 +5,6 @@
       <module fileurl="file://$PROJECT_DIR$/RefreshLayout.iml" filepath="$PROJECT_DIR$/RefreshLayout.iml" />
       <module fileurl="file://$PROJECT_DIR$/adapterlibrary/adapterlibrary.iml" filepath="$PROJECT_DIR$/adapterlibrary/adapterlibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/layout/layout.iml" filepath="$PROJECT_DIR$/layout/layout.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
       <module fileurl="file://$PROJECT_DIR$/swipe/swipe.iml" filepath="$PROJECT_DIR$/swipe/swipe.iml" />
     </modules>

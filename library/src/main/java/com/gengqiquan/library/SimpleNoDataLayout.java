@@ -8,14 +8,13 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.gengqiquan.library.interfaces.NoDataLayout;
 import com.gengqiquan.library.utils.DensityUtils;
 
 
 /**
  * Created by 耿 on 2016/9/8.
  */
-public class SimpleNoDataLayout extends NoDataLayout {
+public class SimpleNoDataLayout extends RefreshLayout {
     ImageView mImg;
     TextView mText;
 
@@ -51,18 +50,13 @@ public class SimpleNoDataLayout extends NoDataLayout {
         mText.setText("暂无数据");
         mImg.setImageDrawable(getResources().getDrawable(R.drawable.img_no_message));
     }
-    @Override
-    public NoDataLayout setLableText(String str) {
+
+    public SimpleNoDataLayout setNoDataLableText(String str) {
         mText.setText(str);
         return this;
     }
 
-    @Override
-    public NoDataLayout setLable2Text(String str) {
-        return this;
-    }
-    @Override
-    public NoDataLayout setImageDrawable(int res) {
+    public SimpleNoDataLayout setNoDataImgRes(int res) {
         mImg.setImageDrawable(getResources().getDrawable(res));
         return this;
     }

@@ -3,29 +3,25 @@ package com.gengqiquan.refreshlayout;
 import android.os.Bundle;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.ImageView;
 
-import com.gengqiquan.library.RefreshLayout;
+import com.gengqiquan.library.utils.SimpleRefreshLayout;
 import com.sunshine.adapterlibrary.adapter.RBAdapter;
-import com.sunshine.adapterlibrary.adapter.RPAdapter;
 import com.sunshine.adapterlibrary.interfaces.Holder;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    RefreshLayout refresh;
+    SimpleRefreshLayout refresh;
     RBAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        refresh = (RefreshLayout) findViewById(R.id.refresh);
+        refresh = (SimpleRefreshLayout) findViewById(R.id.refresh);
         //SampleRefreshLayout特有的方法需放在链式调用的前面
 //        refresh.refreshEnable(true)
 //                .loadMoreEnable(true)
