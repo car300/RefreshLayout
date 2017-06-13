@@ -147,17 +147,17 @@ public class SimpleRefreshLayout extends RefreshLayout {
 <dependency>
   <groupId>com.gengqiquan</groupId>
   <artifactId>refreshlayout</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <type>pom</type>
 </dependency>
 ```
 ## gralde 
 ```
-compile 'com.gengqiquan:refreshlayout:1.0.4'
+compile 'com.gengqiquan:refreshlayout:1.0.5'
 ```
 ## lvy
 ```xml
-<dependency org='com.gengqiquan' name='refreshlayout' rev='1.0.4'>
+<dependency org='com.gengqiquan' name='refreshlayout' rev='1.0.5'>
   <artifact name='refreshlayout' ext='pom' ></artifact>
 </dependency>
 ```
