@@ -59,7 +59,7 @@
                 .doRefresh();
         ImageView imageView = new ImageView(this);
         imageView.setBackgroundDrawable(getResources().getDrawable(R.drawable.img_no_message));
-
+        adapter.addHeaderView(imageView);
     }
 
     public void bindViewData(Holder holder, String item) {
