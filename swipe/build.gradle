@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-
+apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion 25
     buildToolsVersion '25.0.0'
@@ -20,6 +20,22 @@ android {
     }
 }
 
+task javadoc(type: Javadoc) {
+
+    failOnError false
+}
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+publish {
+    userOrg = 'gengqiquan'
+    groupId = 'com.gengqiquan'
+    artifactId = 'refreshlayout'
+    version = '1.0.7'
+    description = 'list refresh layout'
+    website = "https://github.com/gengqiquan/RefreshLayout"
+}
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:25.0.0'
