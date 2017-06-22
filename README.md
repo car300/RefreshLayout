@@ -123,20 +123,20 @@
 ```  java
  
 public class SimpleRefreshLayout extends RefreshLayout {
-    SimpleRefreshLayout mSimpleRefreshLayout;
+    //SimpleRefreshLayout mSimpleRefreshLayout;
 
     public SimpleRefreshLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSimpleRefreshLayout = new SimpleRefreshLayout(context);
+       //mSimpleRefreshLayout = new SimpleRefreshLayout(context);
     }
 
     public SimpleRefreshLayout setNoDataLableText(String str) {
-        mSimpleRefreshLayout.setNoDataLableText(str);
+        //mSimpleRefreshLayout.setNoDataLableText(str);
         return this;
     }
 
     public SimpleRefreshLayout setNoDataImgRes(int res) {
-        mSimpleRefreshLayout.setNoDataImgRes(res);
+        //mSimpleRefreshLayout.setNoDataImgRes(res);
         return this;
     }
 ```
@@ -148,17 +148,17 @@ public class SimpleRefreshLayout extends RefreshLayout {
 <dependency>
   <groupId>com.gengqiquan</groupId>
   <artifactId>refreshlayout</artifactId>
-  <version>1.0.7</version>
+  <version>1.1.0</version>
   <type>pom</type>
 </dependency>
 ```
 ## gralde 
 ```
-compile 'com.gengqiquan:refreshlayout:1.0.7'
+compile 'com.gengqiquan:refreshlayout:1.1.0'
 ```
 ## lvy
 ```xml
-<dependency org='com.gengqiquan' name='refreshlayout' rev='1.0.7'>
+<dependency org='com.gengqiquan' name='refreshlayout' rev='1.1.0'>
   <artifact name='refreshlayout' ext='pom' ></artifact>
 </dependency>
 ```
