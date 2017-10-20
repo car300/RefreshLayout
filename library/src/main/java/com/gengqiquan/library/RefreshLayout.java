@@ -19,12 +19,12 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
+import com.gengqiquan.adapter.interfaces.BAdapter;
 import com.gengqiquan.library.interfaces.FooterLayout;
 import com.gengqiquan.library.interfaces.LoadMoreListener;
 import com.gengqiquan.library.interfaces.RefreshListener;
 import com.gengqiquan.library.utils.DensityUtils;
 import com.gengqiquan.library.utils.ResourceUtil;
-import com.sunshine.adapterlibrary.interfaces.BAdapter;
 
 import java.util.List;
 
@@ -256,7 +256,7 @@ public class RefreshLayout extends RelativeLayout {
 
     //刷新完成添加列表数据
     public void refreshComplete(List list) {
-        if (list.size() == mPageCount) {
+        if (list.size() >= mPageCount) {
             mHasMoreData(true);
         } else {
             mHasMoreData(false);
@@ -275,7 +275,7 @@ public class RefreshLayout extends RelativeLayout {
 
     //加载更多完成后添加数据
     public void loadMoreComplete(List list) {
-        if (list.size() == 20) {
+        if (list.size() >= mPageCount) {
             mHasMoreData(true);
         } else {
             mHasMoreData(false);

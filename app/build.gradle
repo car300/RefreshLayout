@@ -8,7 +8,7 @@ android {
     }
     defaultConfig {
         applicationId "com.gengqiquan.refreshlayout"
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 24
         compileOptions {
             sourceCompatibility JavaVersion.VERSION_1_8

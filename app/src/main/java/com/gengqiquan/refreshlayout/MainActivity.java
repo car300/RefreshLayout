@@ -6,9 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.gengqiquan.adapter.adapter.RBAdapter;
+import com.gengqiquan.adapter.interfaces.Holder;
 import com.gengqiquan.library.SimpleRefreshLayout;
-import com.sunshine.adapterlibrary.adapter.RBAdapter;
-import com.sunshine.adapterlibrary.interfaces.Holder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,11 +67,11 @@ public class MainActivity extends AppCompatActivity {
                         for (int i = 0; i < 20; i++) {
                             list.add("           " + i);
                         }
-//                        if (isrefresh)
-//                            refresh.refreshComplete(list);
-//                        else
-//                            refresh.loadMoreComplete(list);
-                        refresh.loadFailure();
+                        if (isrefresh)
+                            refresh.refreshComplete(list);
+                        else
+                            refresh.loadMoreComplete(list);
+                        //refresh.loadFailure();
                     }
                 });
 

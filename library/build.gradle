@@ -8,14 +8,12 @@ android {
         abortOnError false
     }
     defaultConfig {
-        minSdkVersion 11
+        minSdkVersion 14
         targetSdkVersion 22
-        versionCode 107
-        versionName "1.0.7"
-//        compileOptions {
-//            sourceCompatibility JavaVersion.VERSION_1_8
-//            targetCompatibility JavaVersion.VERSION_1_8
-//        }
+        versionCode 1110
+        versionName "1.1.1"
+        android.compileOptions.sourceCompatibility 1.8
+        android.compileOptions.targetCompatibility 1.8
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -47,14 +45,14 @@ dependencies {
 
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
-    compile project(':swipe')
-    compile project(':adapterlibrary')
+
+    compile 'com.gengqiquan:simple-adapter:0.0.1'
 }
 publish {
     userOrg = 'gengqiquan'
     groupId = 'com.gengqiquan'
     artifactId = 'refreshlayout'
-    version = '1.0.7'
+    version = '1.1.1'
     description = 'list refresh layout'
     website = "https://github.com/gengqiquan/RefreshLayout"
 }

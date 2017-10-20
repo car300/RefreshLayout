@@ -8,7 +8,7 @@ import android.util.AttributeSet;
  */
 
 public class SimpleRefreshLayout extends RefreshLayout {
-    SimpleRefreshLayout mSimpleRefreshLayout;
+    SimpleNoDataLayout mSimpleNoDataLayout;
 
     public SimpleRefreshLayout(Context context) {
         this(context, null);
@@ -20,16 +20,16 @@ public class SimpleRefreshLayout extends RefreshLayout {
 
     public SimpleRefreshLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSimpleRefreshLayout = new SimpleRefreshLayout(context);
+        mSimpleNoDataLayout = new SimpleNoDataLayout(context);
     }
 
     public SimpleRefreshLayout setNoDataLableText(String str) {
-        mSimpleRefreshLayout.setNoDataLableText(str);
+        mSimpleNoDataLayout.noDataLableText(str);
         return this;
     }
 
     public SimpleRefreshLayout setNoDataImgRes(int res) {
-        mSimpleRefreshLayout.setNoDataImgRes(res);
+        mSimpleNoDataLayout.noDataImgRes(res);
         return this;
     }
 }
