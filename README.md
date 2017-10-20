@@ -123,20 +123,20 @@
 ```  java
  
 public class SimpleRefreshLayout extends RefreshLayout {
-    SimpleRefreshLayout mSimpleRefreshLayout;
+    //SimpleRefreshLayout mSimpleRefreshLayout;
 
     public SimpleRefreshLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        mSimpleRefreshLayout = new SimpleRefreshLayout(context);
+       //mSimpleRefreshLayout = new SimpleRefreshLayout(context);
     }
 
     public SimpleRefreshLayout setNoDataLableText(String str) {
-        mSimpleRefreshLayout.setNoDataLableText(str);
+        //mSimpleRefreshLayout.setNoDataLableText(str);
         return this;
     }
 
     public SimpleRefreshLayout setNoDataImgRes(int res) {
-        mSimpleRefreshLayout.setNoDataImgRes(res);
+        //mSimpleRefreshLayout.setNoDataImgRes(res);
         return this;
     }
 ```
@@ -152,7 +152,7 @@ public class SimpleRefreshLayout extends RefreshLayout {
   <type>pom</type>
 </dependency>
 ```
-## gralde 
+## gralde
 ```
 compile 'com.gengqiquan:refreshlayout:1.1.1'
 ```
