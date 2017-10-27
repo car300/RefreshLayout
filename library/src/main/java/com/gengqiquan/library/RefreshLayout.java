@@ -53,6 +53,8 @@ public class RefreshLayout extends RelativeLayout {
     RecyclerView.OnScrollListener mScrollListener;
     AdapterView.OnItemClickListener mOnItemClickListener;
     RelativeLayout mFailureView;
+
+
     RelativeLayout mFloatView;
     RelativeLayout mNoDataView;
     boolean mIsLoadMore = false;
@@ -150,6 +152,7 @@ public class RefreshLayout extends RelativeLayout {
             reload.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    mFailureView.setVisibility(GONE);
                     doRefresh();
                 }
             });
@@ -217,6 +220,10 @@ public class RefreshLayout extends RelativeLayout {
     public RefreshLayout layoutManager(@NonNull RecyclerView.LayoutManager layoutManager) {
         mLayoutManager = layoutManager;
         mRecyclerView.setLayoutManager(mLayoutManager);
+        if (adapter != null) {//刷新下适配器。在切换layoutManager
+            mRecyclerView.setAdapter((RecyclerView.Adapter) adapter.getAdapter());
+        }
+
         return this;
     }
 
@@ -319,6 +326,20 @@ public class RefreshLayout extends RelativeLayout {
         return this.mRecyclerView;
     }
 
+
+    public SwipeRefreshLayout getSwipeRefreshLayout() {
+        return mSwipeRefreshLayout;
+    }
+
+
+    public RelativeLayout getFailureView() {
+        return mFailureView;
+    }
+
+
+    public RelativeLayout getNoDataView() {
+        return mNoDataView;
+    }
 
     /**
      * 列表项点击事件
