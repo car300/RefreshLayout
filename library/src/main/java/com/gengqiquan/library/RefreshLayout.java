@@ -264,9 +264,9 @@ public class RefreshLayout extends RelativeLayout {
     //刷新完成添加列表数据
     public void refreshComplete(List list) {
         if (list.size() >= mPageCount) {
-            mHasMoreData(true);
+            hasMoreData(true);
         } else {
-            mHasMoreData(false);
+            hasMoreData(false);
         }
         adapter.appendList(list);
         mSwipeRefreshLayout.setRefreshing(false);
@@ -283,9 +283,9 @@ public class RefreshLayout extends RelativeLayout {
     //加载更多完成后添加数据
     public void loadMoreComplete(List list) {
         if (list.size() >= mPageCount) {
-            mHasMoreData(true);
+            hasMoreData(true);
         } else {
-            mHasMoreData(false);
+            hasMoreData(false);
         }
         adapter.addList(list);
         mIsLoadMore = false;
@@ -357,14 +357,17 @@ public class RefreshLayout extends RelativeLayout {
     }
 
     //某次请求后。是否有更多数据需要加载
-    public void mHasMoreData(boolean b) {
+    public void hasMoreData(boolean b) {
         if (!mLoadMoreEnable)
             return;
         mHasMoreData = b;
         mIsLoadMore = false;
         mLoadMoreView.onReset();
         if (!mHasMoreData) {
-            mLoadMoreView.onNoMoreData();
+            if (getList().size() > 0) {//无数据不显示foot
+                mLoadMoreView.onNoMoreData();
+            }
+            return;
         } else {
             mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
                 @Override
