@@ -263,12 +263,12 @@ public class RefreshLayout extends RelativeLayout {
 
     //刷新完成添加列表数据
     public void refreshComplete(List list) {
+        adapter.appendList(list);
         if (list.size() >= mPageCount) {
             hasMoreData(true);
         } else {
             hasMoreData(false);
         }
-        adapter.appendList(list);
         mSwipeRefreshLayout.setRefreshing(false);
         mNoDataView.setVisibility(View.GONE);
         if (list.size() == 0) {
@@ -282,12 +282,12 @@ public class RefreshLayout extends RelativeLayout {
 
     //加载更多完成后添加数据
     public void loadMoreComplete(List list) {
+        adapter.addList(list);
         if (list.size() >= mPageCount) {
             hasMoreData(true);
         } else {
             hasMoreData(false);
         }
-        adapter.addList(list);
         mIsLoadMore = false;
     }
 
