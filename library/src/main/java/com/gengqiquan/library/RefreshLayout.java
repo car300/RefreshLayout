@@ -239,20 +239,20 @@ public class RefreshLayout extends RelativeLayout {
     }
 
     /*
-    *分页数量
-    *@author Administrator
-    *@date 2016/10/22 16:35
-    */
+     *分页数量
+     *@author Administrator
+     *@date 2016/10/22 16:35
+     */
     public RefreshLayout mPageCount(int number) {
         this.mPageCount = number;
         return this;
     }
 
     /*
-    *手动调用刷新
-    *@author 耿
-    *@date 2016/9/8 15:06
-    */
+     *手动调用刷新
+     *@author 耿
+     *@date 2016/9/8 15:06
+     */
     public void doRefresh() {
         mSwipeRefreshLayout.setProgressViewOffset(false, 0, DensityUtils.dp2px(mContext, 10));
         mSwipeRefreshLayout.setRefreshing(true);
@@ -295,7 +295,9 @@ public class RefreshLayout extends RelativeLayout {
     public void loadFailure() {
         mSwipeRefreshLayout.setRefreshing(false);
         if (!mIsLoadMore) {
-            adapter.getList().clear();
+            if (!adapter.getList().isEmpty()) {//kotlin Empty clear 会蹦
+                adapter.getList().clear();
+            }
             adapter.notifyDataChanged();
             mFailureView.setVisibility(View.VISIBLE);
         } else {

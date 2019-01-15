@@ -48,7 +48,6 @@ public class SimpleNoDataLayout extends RefreshLayout {
         params.addRule(RelativeLayout.CENTER_IN_PARENT);
         addView(linearLayout, params);
         mText.setText("暂无数据");
-        mImg.setImageDrawable(getResources().getDrawable(R.drawable.img_no_message));
     }
 
     public SimpleNoDataLayout noDataLableText(String str) {

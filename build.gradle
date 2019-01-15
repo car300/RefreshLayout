@@ -1,37 +1,13 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-ext {
-//    ARTIFACT_ID = 'YOUR_ARTIFACT_ID'
-//    VERSION_NAME = 'YOUR_VERSION_NAME'
-//    VERSION_CODE = 1 //your version
-//
-//    DESCRIPTION = 'YOUR_DESCRIPTION'
-//
-//    SITE_URL = 'YOUR_SITE_URL'
-//    GIT_URL = 'YOUR_GIT_URL'
-//    GROUP_NAME = 'YOUR_GROUP_NAME'
-//    COMPILE_SDK = 23
-//    BUILD_TOOLS = '23.0.1'
-
-    MODULE_NAME = 'swipe'
-
-//    LICENSE = 'YOUR_LICENSE'
-//
-//    DEVELOPER_ID = 'YOUR_DEVELOPER_ID'
-//    DEVELOPER_NAME = 'YOUR_NAME'
-//    DEVELOPER_EMAIL = 'YOUR_EMAIL_ADDRESS'
-
-    IS_UPLOADING = project.getGradle().startParameter.taskNames.any{it.contains('bintrayUpload')}
-}
 buildscript {
     repositories {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.2'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'me.tatarka:gradle-retrolambda:3.2.5'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.4'
+        classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'com.novoda:bintray-release:0.5.0'
     }
 
@@ -45,6 +21,7 @@ allprojects {
     }
     repositories {
         jcenter()
+        maven { url "https://jitpack.io" }
     }
     tasks.withType(Javadoc).all { enabled = false }
 }
