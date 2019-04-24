@@ -20,6 +20,7 @@ public class SimpleRefreshLayout extends RefreshLayout {
 
     public SimpleRefreshLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        noDataView(mSimpleNoDataLayout);
         mSimpleNoDataLayout = new SimpleNoDataLayout(context);
     }
 
