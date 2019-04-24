@@ -437,7 +437,13 @@ public class RefreshLayout extends RelativeLayout {
             return ((GridLayoutManager) mLayoutManager).findLastCompletelyVisibleItemPosition();
         }
         if (mLayoutManager instanceof StaggeredGridLayoutManager) {
-            return ((StaggeredGridLayoutManager) mLayoutManager).findLastCompletelyVisibleItemPositions(null)[0];
+            int[] positions = ((StaggeredGridLayoutManager) mLayoutManager).findLastCompletelyVisibleItemPositions(null);
+            int max = -1;
+            // 多列时,最后一个item不一定是最左边一列
+            for (int position : positions) {
+                max = Math.max(max, position);
+            }
+            return max;
         }
         throw new IllegalArgumentException(mLayoutManager.getClass().getName() + " must be one of "
                 + " LinearLayoutManager,GridLayoutManager,StaggeredGridLayoutManager can findLastCompletelyVisibleItemPositions");

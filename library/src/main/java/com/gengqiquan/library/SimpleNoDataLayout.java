@@ -14,7 +14,7 @@ import com.gengqiquan.library.utils.DensityUtils;
 /**
  * Created by 耿 on 2016/9/8.
  */
-public class SimpleNoDataLayout extends RefreshLayout {
+public class SimpleNoDataLayout extends RelativeLayout {
     ImageView mImg;
     TextView mText;
 
