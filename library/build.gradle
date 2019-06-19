@@ -2,16 +2,16 @@ apply plugin: 'com.android.library'
 apply plugin: 'me.tatarka.retrolambda'
 apply plugin: 'com.novoda.bintray-release'
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
     lintOptions {
         abortOnError false
     }
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 22
-        versionCode 1170
-        versionName "1.1.7"
+        versionCode 1180
+        versionName "1.1.8"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
     }
@@ -41,7 +41,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:appcompat-v7:28.0.0'
     testCompile 'junit:junit:4.12'
 
     compile 'com.gengqiquan:simple-adapter:0.0.1'
@@ -50,7 +50,7 @@ publish {
     userOrg = 'gengqiquan'
     groupId = 'com.gengqiquan'
     artifactId = 'refreshlayout'
-    version = '1.1.7'
+    version = '1.1.8'
     description = 'list refresh layout'
     website = "https://github.com/gengqiquan/RefreshLayout"
 }

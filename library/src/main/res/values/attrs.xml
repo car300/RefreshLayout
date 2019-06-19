@@ -10,7 +10,7 @@
         <attr name="pageCount" format="integer" />
         <attr name="showFloatView" format="boolean" />
         <attr name="failureLayout" format="reference" />
-        <attr name="noDataLayout" format="reference" />
+        <attr name="emptyLayout" format="reference" />
         <attr name="floatView" format="reference" />
         <attr name="column" format="integer" />
         <attr name="recyclerViewLayoutManager">

@@ -1,6 +1,7 @@
 buildscript {
     repositories {
         jcenter()
+        google()
     }
     dependencies {
         // NOTE: Do not place your application dependencies here; they belong
@@ -22,6 +23,7 @@ allprojects {
     repositories {
         jcenter()
         maven { url "https://jitpack.io" }
+        google()
     }
     tasks.withType(Javadoc).all { enabled = false }
 }

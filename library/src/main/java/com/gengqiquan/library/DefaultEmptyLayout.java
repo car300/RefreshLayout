@@ -14,19 +14,19 @@ import com.gengqiquan.library.utils.DensityUtils;
 /**
  * Created by 耿 on 2016/9/8.
  */
-public class SimpleNoDataLayout extends RelativeLayout {
+public class DefaultEmptyLayout extends RelativeLayout {
     ImageView mImg;
     TextView mText;
 
-    public SimpleNoDataLayout(Context context) {
+    public DefaultEmptyLayout(Context context) {
         this(context, null);
     }
 
-    public SimpleNoDataLayout(Context context, AttributeSet attrs) {
+    public DefaultEmptyLayout(Context context, AttributeSet attrs) {
         this(context, null, 0);
     }
 
-    public SimpleNoDataLayout(Context context, AttributeSet attrs, int defStyleAttr) {
+    public DefaultEmptyLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
@@ -50,12 +50,12 @@ public class SimpleNoDataLayout extends RelativeLayout {
         mText.setText("暂无数据");
     }
 
-    public SimpleNoDataLayout noDataLableText(String str) {
+    public DefaultEmptyLayout emptyText(String str) {
         mText.setText(str);
         return this;
     }
 
-    public SimpleNoDataLayout noDataImgRes(int res) {
+    public DefaultEmptyLayout emptyImgRes(int res) {
         mImg.setImageDrawable(getResources().getDrawable(res));
         return this;
     }

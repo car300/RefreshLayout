@@ -8,7 +8,7 @@
         <item name="loadMoreEnable">true</item>
         <item name="showFloatView">true</item>
         <item name="failureLayout">@layout/layout_bad_network1</item>
-        <item name="noDataLayout">@layout/layout_no_data1</item>
+        <item name="emptyLayout">@layout/layout_no_data1</item>
         <item name="pageCount">20</item>
         <item name="column">1</item>
         <item name="recyclerViewLayoutManager">LinearLayoutManager</item>

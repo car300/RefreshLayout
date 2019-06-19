@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         adapter = new RBAdapter<String>(this)
                 .layout(R.layout.item_main_list)
                 .bindViewData(this::bindViewData);
-        refresh.setNoDataLableText("暂无数据")
-                .setNoDataImgRes(R.drawable.message_default)
+        refresh.emptyText("暂无数据")
+                .emptyImgRes(R.drawable.message_default)
                 .adapter(adapter)
                 .refreshEnable(true)
                 .refresh(() -> load(true))
