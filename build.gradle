@@ -12,16 +12,19 @@ buildscript {
 }
 
 allprojects {
-    //防止中文乱码
-    tasks.withType(Javadoc) {
-        options.encoding = 'UTF-8'
-        options.charSet = 'UTF-8'
-    }
     repositories {
         jcenter()
         google()
         maven { url "https://jitpack.io" }
         google()
+    }
+
+    tasks.withType(Javadoc) {
+        options.encoding = 'UTF-8'
+    }
+
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
     }
 }
 
