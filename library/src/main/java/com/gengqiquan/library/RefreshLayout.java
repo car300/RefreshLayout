@@ -58,7 +58,7 @@ public class RefreshLayout extends RelativeLayout {
 
 
     RelativeLayout mFloatView;
-    RelativeLayout mNoDataView;
+    RelativeLayout mEmptyView;
     boolean mIsLoadMore = false;
     boolean mHasMoreData = false;
     boolean mLoadMoreEnable = true;
@@ -92,9 +92,9 @@ public class RefreshLayout extends RelativeLayout {
         addView(mFailureView, RL_LPMM);
         mFailureView.setVisibility(View.GONE);
 
-        mNoDataView = new RelativeLayout(mContext);
-        addView(mNoDataView, RL_LPMM);
-        mNoDataView.setVisibility(View.GONE);
+        mEmptyView = new RelativeLayout(mContext);
+        addView(mEmptyView, RL_LPMM);
+        mEmptyView.setVisibility(View.GONE);
 
 //        mLoadMoreView = onCreateLoadMoreView();
         if (mLoadMoreView == null) {
@@ -123,7 +123,7 @@ public class RefreshLayout extends RelativeLayout {
         return this;
     }
 
-    public RefreshLayout mIsShowFloatView(boolean enable) {
+    public RefreshLayout showFloatView(boolean enable) {
         mIsShowFloatView = enable;
         return this;
     }
@@ -135,7 +135,7 @@ public class RefreshLayout extends RelativeLayout {
      * @author gengqiquan
      * @date 2017/6/13 下午3:13
      */
-    public RefreshLayout failueView(@NonNull View v) {
+    public RefreshLayout failureView(@NonNull View v) {
         mFailureView.removeAllViews();
         LayoutParams layoutParams = (LayoutParams) v.getLayoutParams();
         if (layoutParams == null) {
@@ -156,27 +156,27 @@ public class RefreshLayout extends RelativeLayout {
     }
 
     @SuppressLint("InflateParams")
-    public RefreshLayout failueView(@LayoutRes int res) {
+    public RefreshLayout failureView(@LayoutRes int res) {
         if (res != 0) {
-            failueView(LayoutInflater.from(mContext).inflate(res, null));
+            failureView(LayoutInflater.from(mContext).inflate(res, null));
         }
         return this;
     }
 
-    public RefreshLayout noDataView(@NonNull View v) {
-        mNoDataView.removeAllViews();
+    public RefreshLayout emptyView(@NonNull View v) {
+        mEmptyView.removeAllViews();
         LayoutParams layoutParams = (LayoutParams) v.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = RL_LPMM;
         }
-        mNoDataView.addView(v, layoutParams);
+        mEmptyView.addView(v, layoutParams);
         return this;
     }
 
     @SuppressLint("InflateParams")
-    public RefreshLayout noDataView(@LayoutRes int res) {
+    public RefreshLayout emptyView(@LayoutRes int res) {
         if (res != 0) {
-            noDataView(LayoutInflater.from(mContext).inflate(res, null));
+            emptyView(LayoutInflater.from(mContext).inflate(res, null));
         }
         return this;
     }
@@ -237,7 +237,7 @@ public class RefreshLayout extends RelativeLayout {
      *@author Administrator
      *@date 2016/10/22 16:35
      */
-    public RefreshLayout mPageCount(int number) {
+    public RefreshLayout pageSize(int number) {
         this.mPageCount = number;
         return this;
     }
@@ -264,13 +264,13 @@ public class RefreshLayout extends RelativeLayout {
             hasMoreData(false);
         }
         mSwipeRefreshLayout.setRefreshing(false);
-        mNoDataView.setVisibility(View.GONE);
+        mEmptyView.setVisibility(View.GONE);
         if (list.size() == 0) {
             if (mLoadMoreEnable) {
                 mLoadMoreView.onReset();
             }
-            if (mNoDataView != null)
-                mNoDataView.setVisibility(View.VISIBLE);
+            if (mEmptyView != null)
+                mEmptyView.setVisibility(View.VISIBLE);
         }
     }
 
@@ -286,7 +286,7 @@ public class RefreshLayout extends RelativeLayout {
     }
 
     //数据请求失败调用
-    public void loadFailure() {
+    public void failure() {
         mSwipeRefreshLayout.setRefreshing(false);
         if (!mIsLoadMore) {
             if (!adapter.getList().isEmpty()) {//kotlin Empty clear 会蹦
@@ -303,7 +303,7 @@ public class RefreshLayout extends RelativeLayout {
     }
 
     //是否允许控件加载更多
-    public RefreshLayout mLoadMoreEnable(boolean b) {
+    public RefreshLayout loadMoreEnable(boolean b) {
         mLoadMoreEnable = b;
         return this;
     }
@@ -333,8 +333,8 @@ public class RefreshLayout extends RelativeLayout {
     }
 
 
-    public RelativeLayout getNoDataView() {
-        return mNoDataView;
+    public RelativeLayout getEmptyView() {
+        return mEmptyView;
     }
 
     /**
@@ -343,7 +343,7 @@ public class RefreshLayout extends RelativeLayout {
      * @author gengqiquan
      * @date 2017/3/31 上午10:43
      */
-    public RefreshLayout setOnListViewItemClickListener(AdapterView.OnItemClickListener listener) {
+    public RefreshLayout setOnItemClickListener(AdapterView.OnItemClickListener listener) {
         mOnItemClickListener = listener;
         return this;
     }
@@ -519,8 +519,8 @@ public class RefreshLayout extends RelativeLayout {
         mPageCount = a.getInteger(R.styleable.RefreshLayout_pageCount, 20);
         int coulmnNum = a.getInteger(R.styleable.RefreshLayout_column, 1);
         int layoutManagerType = a.getInteger(R.styleable.RefreshLayout_recyclerViewLayoutManager, 0);
-        failueView(a.getResourceId(R.styleable.RefreshLayout_failureLayout, 0));
-        noDataView(a.getResourceId(R.styleable.RefreshLayout_noDataLayout, 0));
+        failureView(a.getResourceId(R.styleable.RefreshLayout_failureLayout, 0));
+        emptyView(a.getResourceId(R.styleable.RefreshLayout_emptyLayout, 0));
         floatView(a.getResourceId(R.styleable.RefreshLayout_floatView, 0));
         a.recycle();
 

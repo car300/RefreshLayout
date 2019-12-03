@@ -51,8 +51,8 @@
         adapter = new RBAdapter<String>(this)
                 .layout(R.layout.item_main_list)
                 .bindViewData(this::bindViewData);
-        refresh.setNoDataLableText("暂无数据")
-                .setNoDataImgRes(R.drawable.message_default)
+        refresh.emptyText("暂无数据")
+                .emptyImgRes(R.drawable.message_default)
                 .adapter(adapter)
                 .refreshEnable(true)
                 .refresh(() -> load(true))
@@ -121,7 +121,7 @@
 ## 继承RefreshLayout实现自己布局样式
 
 ```  java
- 
+
 public class SimpleRefreshLayout extends RefreshLayout {
     //SimpleRefreshLayout mSimpleRefreshLayout;
 
@@ -148,12 +148,12 @@ public class SimpleRefreshLayout extends RefreshLayout {
 <dependency>
   <groupId>com.gengqiquan</groupId>
   <artifactId>refreshlayout</artifactId>
-  <version>1.1.7</version>
+  <version>1.1.8</version>
   <type>pom</type>
 </dependency>
 ```
 ## gralde
 ```
-compile 'com.gengqiquan:refreshlayout:1.1.7'
+compile 'com.gengqiquan:refreshlayout:1.1.8'
 ```
 
