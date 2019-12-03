@@ -6,11 +6,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.gengqiquan.library.SimpleRefreshLayout
+    <com.gengqiquan.library.RefreshLayout
         android:id="@+id/refresh"
         style="@style/RefreshLayoutBase"
         android:layout_width="match_parent"
         app:column="2"
         app:recyclerViewLayoutManager="GridLayoutManager"
-        android:layout_height="match_parent"></com.gengqiquan.library.SimpleRefreshLayout>
+        android:layout_height="match_parent"/>
 </RelativeLayout>

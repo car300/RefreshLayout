@@ -1,4 +1,4 @@
-package com.gengqiquan.library.interfaces;
+package com.sunshine.viewlibrary.refresh.interfaces;
 
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,4 +19,6 @@ public interface FooterLayout {
     public void onRefreshing();
 
     public void onNoMoreData();
+
+    public void hide();
 }

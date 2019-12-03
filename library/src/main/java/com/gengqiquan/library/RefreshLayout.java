@@ -3,13 +3,6 @@ package com.gengqiquan.library;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,12 +12,21 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 
-import com.gengqiquan.adapter.interfaces.BAdapter;
-import com.gengqiquan.library.interfaces.FooterLayout;
-import com.gengqiquan.library.interfaces.LoadMoreListener;
-import com.gengqiquan.library.interfaces.RefreshListener;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.gengqiquan.library.utils.DensityUtils;
 import com.gengqiquan.library.utils.ResourceUtil;
+import com.sunshine.adapterlibrary.interfaces.RVBAdapter;
+import com.sunshine.viewlibrary.refresh.FooterLoadingLayout;
+import com.sunshine.viewlibrary.refresh.interfaces.FooterLayout;
+import com.sunshine.viewlibrary.refresh.interfaces.LoadMoreListener;
+import com.sunshine.viewlibrary.refresh.interfaces.RefreshListener;
 
 import java.util.List;
 
@@ -47,7 +49,7 @@ public class RefreshLayout extends RelativeLayout {
     SwipeRefreshLayout mSwipeRefreshLayout;
     RecyclerView mRecyclerView;
     Context mContext;
-    BAdapter adapter;
+    RVBAdapter adapter;
     RefreshListener mRefreshListener;
     LoadMoreListener mLoadMoreListener;
     RecyclerView.OnScrollListener mScrollListener;
@@ -101,14 +103,6 @@ public class RefreshLayout extends RelativeLayout {
             mLoadMoreView.setAddLayoutParams(params);
         }
 
-//        mRecyclerView.addi(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                if (mOnItemClickListener != null) {
-//                    mOnItemClickListener.onItemClick(parent, view, position, id);
-//                }
-//            }
-//        });
         mFloatView = new RelativeLayout(mContext);
         addView(mFloatView, RL_LPMM);
         mFloatView.setVisibility(View.GONE);
@@ -254,7 +248,7 @@ public class RefreshLayout extends RelativeLayout {
      *@date 2016/9/8 15:06
      */
     public void doRefresh() {
-        mSwipeRefreshLayout.setProgressViewOffset(false, 0, DensityUtils.dp2px(mContext, 10));
+//        mSwipeRefreshLayout.setProgressViewOffset(false, 0, DensityUtils.dp2px(mContext, 10));
         mSwipeRefreshLayout.setRefreshing(true);
         if (mRefreshListener != null) {
             mRefreshListener.onRefresh();
@@ -314,7 +308,7 @@ public class RefreshLayout extends RelativeLayout {
         return this;
     }
 
-    public BAdapter getAdapter() {
+    public RVBAdapter getAdapter() {
         return this.adapter;
     }
 
@@ -498,7 +492,7 @@ public class RefreshLayout extends RelativeLayout {
     }
 
     //设置适配器
-    public RefreshLayout adapter(BAdapter adapter) {
+    public RefreshLayout adapter(RVBAdapter adapter) {
         this.adapter = adapter;
         mRecyclerView.setAdapter((RecyclerView.Adapter) adapter.getAdapter());
         adapter.addFooterView(mLoadMoreView.getFooterView());

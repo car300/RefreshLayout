@@ -1,34 +1,32 @@
 package com.gengqiquan.refreshlayout;
 
 import android.os.Bundle;
-import android.os.Looper;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ImageView;
 
-import com.gengqiquan.adapter.adapter.RBAdapter;
-import com.gengqiquan.adapter.interfaces.Holder;
-import com.gengqiquan.library.SimpleRefreshLayout;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.gengqiquan.library.RefreshLayout;
+import com.sunshine.adapterlibrary.adapter.RBAdapter;
+import com.sunshine.adapterlibrary.interfaces.Holder;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    SimpleRefreshLayout refresh;
-    RBAdapter adapter;
+    RefreshLayout refresh;
+    RBAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        refresh = (SimpleRefreshLayout) findViewById(R.id.refresh);
+        refresh = (RefreshLayout) findViewById(R.id.refresh);
         //SimpleRefreshLayout特有的方法需放在链式调用的前面
         adapter = new RBAdapter<String>(this)
                 .layout(R.layout.item_main_list)
                 .bindViewData(this::bindViewData);
-        refresh.setNoDataLableText("暂无数据")
-                .setNoDataImgRes(R.drawable.message_default)
-                .adapter(adapter)
+        refresh.adapter(adapter)
                 .refreshEnable(true)
                 .refresh(() -> load(true))
                 .loadMore(() -> load(false))
@@ -36,9 +34,6 @@ public class MainActivity extends AppCompatActivity {
         ImageView imageView = new ImageView(this);
         imageView.setBackgroundDrawable(getResources().getDrawable(R.drawable.img_no_message));
         adapter.addHeaderView(imageView);
-//        ImageView foot = new ImageView(this);
-//        foot.setBackgroundDrawable(getResources().getDrawable(R.drawable.image_replace));
-//        adapter.addFooterView(foot);
 
     }
 
@@ -50,14 +45,12 @@ public class MainActivity extends AppCompatActivity {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Looper.prepare();
                 try {
                     if (isrefresh)
                         Thread.sleep(2000);
                     else
                         Thread.sleep(500);
                 } catch (Exception e) {
-
                 }
                 Log.e("isrefresh", "isrefresh");
                 runOnUiThread(new Runnable() {
