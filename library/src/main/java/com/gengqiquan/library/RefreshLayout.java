@@ -269,8 +269,10 @@ public class RefreshLayout extends RelativeLayout {
             if (mLoadMoreEnable) {
                 mLoadMoreView.onReset();
             }
-            if (mEmptyView != null)
+            if (mEmptyView != null) {
                 mEmptyView.setVisibility(View.VISIBLE);
+                mLoadMoreView.hide();
+            }
         }
     }
 

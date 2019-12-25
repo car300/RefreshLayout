@@ -40,7 +40,7 @@ uploadArchives {
     repositories {
         mavenDeployer {
             pom.groupId = 'com.car300.android_modules'
-            pom.version = '1.0.0'
+            pom.version = '1.0.1'
             pom.artifactId = 'refreshlayout'
             repository(url: uri("../repo"))
         }
