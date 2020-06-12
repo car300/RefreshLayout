@@ -6,7 +6,7 @@ import android.util.AttributeSet;
 /**
  * Created by gengqiquan on 2017/6/13.
  */
-
+@Deprecated
 public class SimpleRefreshLayout extends RefreshLayout {
     DefaultEmptyLayout mEmptyLayout;
 

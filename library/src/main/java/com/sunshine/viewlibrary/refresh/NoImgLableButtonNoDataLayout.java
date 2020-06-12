@@ -14,6 +14,7 @@ import com.sunshine.viewlibrary.refresh.interfaces.NoDataLayout;
 /**
  * Created by 耿 on 2016/9/8.
  */
+@Deprecated
 public class NoImgLableButtonNoDataLayout extends NoDataLayout {
     TextView mText;
     TextView mText2;

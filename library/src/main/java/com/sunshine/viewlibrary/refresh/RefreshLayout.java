@@ -37,6 +37,7 @@ import java.util.List;
  * 无数据展示没有数据界面
  * Created by 耿 on 2016/9/7.
  */
+@Deprecated
 @CoordinatorLayout.DefaultBehavior(AppBarLayout.ScrollingViewBehavior.class)
 public class RefreshLayout extends RelativeLayout implements NestedScrollingChild {
     public final static int LISTMODE_RECYCLER = 0;

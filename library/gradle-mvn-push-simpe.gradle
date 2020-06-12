@@ -41,7 +41,7 @@ afterEvaluate { project ->
         repositories {
             mavenDeployer {
                 pom.groupId = GROUP
-                pom.artifactId = "refreshlayout"
+                pom.artifactId = "simple-adapter"
                 pom.version = VERSION_NAME
 
                 repository(url: getReleaseRepositoryUrl()) {
@@ -52,9 +52,9 @@ afterEvaluate { project ->
                 }
 
                 pom.project {
-                    name "refreshlayout"
+                    name "simple-adapter"
                     packaging POM_PACKAGING
-                    description "金融评估sdk"
+                    description "通用列表适配器"
                 }
             }
         }

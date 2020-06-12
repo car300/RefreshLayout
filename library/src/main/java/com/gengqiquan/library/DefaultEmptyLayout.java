@@ -14,6 +14,7 @@ import com.gengqiquan.library.utils.DensityUtils;
 /**
  * Created by 耿 on 2016/9/8.
  */
+@Deprecated
 public class DefaultEmptyLayout extends RelativeLayout {
     ImageView mImg;
     TextView mText;

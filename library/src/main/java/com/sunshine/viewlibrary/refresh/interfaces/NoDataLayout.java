@@ -7,6 +7,7 @@ import android.widget.RelativeLayout;
 /**
  * Created by 耿 on 2016/9/8.
  */
+@Deprecated
 public abstract class NoDataLayout extends RelativeLayout {
 
 

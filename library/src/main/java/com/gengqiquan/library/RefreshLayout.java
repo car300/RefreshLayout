@@ -42,6 +42,7 @@ import java.util.List;
  * TODO 上滑隐藏header，下滑显示header
  * Created by 耿 on 2016/9/7.
  */
+@Deprecated
 public class RefreshLayout extends RelativeLayout {
     public final static int LISTMODE_RECYCLER = 0;
     public final static int LISTMODE_LISTVIEW_OR_GRIDVIEW = 1;

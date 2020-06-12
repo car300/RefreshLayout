@@ -7,6 +7,7 @@ import android.view.ViewGroup;
  * 加载更多接口
  * Created by 耿 on 2016/9/8.
  */
+@Deprecated
 public interface FooterLayout {
     public void onReset();
 

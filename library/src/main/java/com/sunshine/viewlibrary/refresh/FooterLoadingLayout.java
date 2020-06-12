@@ -25,6 +25,7 @@ import com.sunshine.viewlibrary.refresh.interfaces.FooterLayout;
  * @author Li Hong
  * @since 2013-7-30
  */
+@Deprecated
 public class FooterLoadingLayout extends RelativeLayout implements FooterLayout {
     /**
      * 进度条
